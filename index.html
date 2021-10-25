@@ -17,15 +17,17 @@
     <header class = "jumbotron text-center">Weather Dashboard</header>
 
     <!-- Form -->
+    <div class = col-3>
     <form id = "search">
-      <label for="city-search">Search for a City:</label>
-      <input type="search" class="form-input" name="city"/>
-      <input type="button" class ="btn btn-primary" value= "Search"></button>
+      <label for="city-search" class = col>Search for a City:</label>
+      <input type="search" class="form-input col" name="city" placeholder="New York"/>
+      <input type="submit" class ="btn btn-primary col " 
+      value= "Search"></input>
     </form>
-    
+  </div>
 
-    <article> Information <article>
-    <section> 5-Day Forecast </section>
+    <section class = col> Information </section>
+    <section class = col> 5-Day Forecast </section>
 
 
   <script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
