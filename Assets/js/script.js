@@ -15,16 +15,19 @@ const APIKey = "00a458a5a4ee8e7d62edeb1913c60d1a";
 
 function Weather(city) {
   var requestUrl =
-    "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    "London" +
+    "&appid=" +
+    APIKey;
+  console.log(requestUrl);
 
-  //   fetch(requestUrl)
-  //     .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //       console.log("Fetch Response \n-------------");
-  //       console.log(data);
-  //     });
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
 
 // Output API Data
