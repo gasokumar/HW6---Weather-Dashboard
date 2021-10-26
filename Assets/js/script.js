@@ -16,9 +16,10 @@ const APIKey = "00a458a5a4ee8e7d62edeb1913c60d1a";
 function Weather(city) {
   var requestUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
+    "London" +
     "&appid=" +
-    APIKey;
+    APIKey +
+    "&units=imperial";
 
   fetch(requestUrl)
     .then(function (response) {
