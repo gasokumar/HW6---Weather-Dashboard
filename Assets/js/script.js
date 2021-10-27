@@ -7,6 +7,7 @@ var currentTempEl = document.getElementById("temp");
 var currentWindEl = document.getElementById("wind");
 var currentHumidityEl = document.getElementById("humidity");
 var currentUVel = document.getElementById("uv");
+var list = document.getElementById("history");
 const APIKey = "00a458a5a4ee8e7d62edeb1913c60d1a";
 
 // FUNCTIONS ===============================
@@ -52,7 +53,15 @@ function currentWeather(city) {
         humidity: data.main.humidity,
         windSpeed: data.wind.speed,
       };
+
+      //Creating a button for each search item
       localStorage.setItem(City.name, JSON.stringify(City));
+      var entry = document.createElement("button");
+      entry.setAttribute("class", "btn btn-secondary col-3");
+      entry.setAttribute("id", City.name);
+      entry.appendChild(document.createTextNode(City.name));
+      list.appendChild(entry);
+      //   entry.addEventListener("click", currentWeather(entry.id));
     });
 }
 
@@ -65,4 +74,5 @@ function currentWeather(city) {
 searchButton.addEventListener("click", function () {
   var city = citySearch.value;
   currentWeather(city);
+  //   for (var i = 0; i < localStorage.length; i++) {
 });
