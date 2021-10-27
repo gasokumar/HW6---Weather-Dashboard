@@ -11,33 +11,33 @@ const APIKey = "00a458a5a4ee8e7d62edeb1913c60d1a";
 // FUNCTIONS ===============================
 // Store search in local storage
 
-// Fetch API Data using form/after button click
+// Fetch API Data using form/after button click for current conditions
 
-function Weather(city) {
+function currentWeather() {
   var requestUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
+    "london" +
     "&appid=" +
     APIKey +
     "&units=imperial";
 
-  fetch(requestUrl)
+  fetch(requestUrl) // fetch (path to data)
     .then(function (response) {
+      // turning that data into json
       return response.json();
     })
     .then(function (data) {
+      // Then console logging the json data
       console.log(data);
     });
+  var currentDate = moment().format("l");
 }
 
-// Output API Data
-
-// Current and future conditions for that city
+// Fetch API Data for 5 day forecast
 
 //City name, the date, temp, humidity, wind speed, and UV index
-// Same thing 6 times except in future conditions there's no UV or city name
 
 searchButton.addEventListener("click", function () {
   console.log("You clicked the button");
 });
-searchButton.addEventListener("click", Weather());
+searchButton.addEventListener("click", currentWeather());
