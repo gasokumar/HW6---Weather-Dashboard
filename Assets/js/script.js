@@ -1,11 +1,12 @@
 //  DEPENDNCIES ===================================
-var citySearch = $("#city-search");
+var citySearch = $("#city-search"); //Search input
 var searchButton = document.getElementById("search-button");
-var cityName = $("#city-name");
-var currentTemp = $("#temp");
-var currentWind = $("wind");
-var currentHumidity = $("#humidity");
-var currentUV = $("#uv");
+var cityNameEl = document.getElementById("city-name");
+var icon = $("#icon");
+var currentTempEl = document.getElementById("temp");
+var currentWindEl = $("#wind");
+var currentHumidityEl = $("#humidity");
+var currentUVel = $("#uv");
 const APIKey = "00a458a5a4ee8e7d62edeb1913c60d1a";
 
 // FUNCTIONS ===============================
@@ -29,8 +30,16 @@ function currentWeather() {
     .then(function (data) {
       // Then console logging the json data
       console.log(data);
+      var currentDate = moment().format("l");
+      cityNameEl.innerHTML = data.name + " " + currentDate;
+      //   console.log(data.weather[0].icon); Need this to add icon next to cityNameEl
+      currentTempEl.innerHTML = "Temperature: " + data.main.temp;
+      currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
+      currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
+
+      // Not in this data set
+      currentUVel.innerHTML = "UV Index: ";
     });
-  var currentDate = moment().format("l");
 }
 
 // Fetch API Data for 5 day forecast
